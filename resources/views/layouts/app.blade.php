@@ -99,7 +99,7 @@
                 </a>
             </li>
             <li class="mx-2.5 hover:text-white cursor-pointer">
-                <a href="{{ route('cart') }}">
+                <a href="{{ route('product.cart') }}">
                     Cart
                 </a>
             </li>

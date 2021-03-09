@@ -19,7 +19,8 @@
                 <div class="flex">
                     <span class="title-font font-medium text-2xl text-gray-900">${{ $product->regular_price }}</span>
                     <button class="flex ml-auto text-white bg-yellow-500 border-0 py-2 px-6
-                    focus:outline-none hover:bg-yellow-600 rounded">
+                    focus:outline-none hover:bg-yellow-600 rounded"
+                    wire:click.prevent="store({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})">
                         Add to Cart
                     </button>
                 </div>
