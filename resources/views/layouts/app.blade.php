@@ -31,7 +31,7 @@
                         <button @click="open = !open"
                                 class="block focus:outline-none cursor-pointer text-gray-700 hover:text-black flex"
                         >
-                            ({{ auth()->user()->name }})
+                            My Accound({{ auth()->user()->name }})
                         </button>
                         <div x-show="open" @click.away="open = false"
                              x-transition:enter="transition ease-out duration-100"
@@ -117,9 +117,15 @@
     {{ $slot }}
 </main>
 
-<footer class="bg-gray-800 py-2 text-white text-2xl flex justify-center">
-    <div>
-        Footer
+<footer class="text-gray-600 body-font">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <span class="ml-3 text-xl">MyShoe</span>
+        </a>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+            © 2021 MyShoe
+        </p>
+    </span>
     </div>
 </footer>
 @livewireScripts
