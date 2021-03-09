@@ -22,25 +22,25 @@
 
 </head>
 <body>
-<header>
+<header class="sticky top-0">
     <div class="flex justify-end bg-gray-300">
         @if(Route::has('login'))
             <div class="flex justify-between py-1 px-2">
                 @auth
                     <div x-data="{ open: false}">
                         <button @click="open = !open"
-                                class="block focus:outline-none cursor-pointer text-gray-700 hover:text-black flex p-2 pl-3 pr-1"
+                                class="block focus:outline-none cursor-pointer text-gray-700 hover:text-black flex"
                         >
                             ({{ auth()->user()->name }})
                         </button>
                         <div x-show="open" @click.away="open = false"
                              x-transition:enter="transition ease-out duration-100"
                              x-transition:enter-start="transform opacity-0 scale-95"
-                             x-transition:enter-end="transform opacity-100 scale-100"
+                             x-transition:enter-end="transform opacity-95 scale-100"
                              x-transition:leave="transition ease-in duration-75"
-                             x-transition:leave-start="transform opacity-100 scale-100"
+                             x-transition:leave-start="transform opacity-95 scale-100"
                              x-transition:leave-end="transform opacity-0 scale-95"
-                             class="absolute right-1 py-2 px-1 bg-white rounded-sm shadow-md show text-sm"
+                             class="absolute right-1 py-2 px-1 bg-white rounded-sm shadow-md show text-sm opacity-95"
                         >
                             <a href="{{ (auth()->user()->role == 1) ? route('admin.dashboard') : route('user.dashboard')}}"
                                class="block px-3 py-1 text-gray-700 rounded
@@ -77,6 +77,7 @@
             </div>
         @endif
     </div>
+
     <nav class="flex justify-between bg-primary w-full py-3.5">
         <a href="{{ route('home') }}" class="text-2xl ml-3 text-gray-100 hover:text-white">
             MyShoe
@@ -108,7 +109,6 @@
                 </a>
             </li>
         </ul>
-        </div>
         <div></div>
     </nav>
 </header>
@@ -122,5 +122,6 @@
         Footer
     </div>
 </footer>
+@livewireScripts
 </body>
 </html>
