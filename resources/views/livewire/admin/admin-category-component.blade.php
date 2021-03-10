@@ -45,7 +45,11 @@
                                 <td class="px-4 py-3">{{ $category->id }}</td>
                                 <td class="px-4 py-3">{{ $category->name }}</td>
                                 <td class="px-4 py-3">{{ $category->slug }}</td>
-                                <td class="px-4 py-3">EDIT DELETE</td>
+                                <td class="px-4 py-3">
+                                    <a href="{{route('admin.category.edit', ['categorySlug' => $category->slug])}}">
+                                        <i class="fa fa-edit fa-2x"></i>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
