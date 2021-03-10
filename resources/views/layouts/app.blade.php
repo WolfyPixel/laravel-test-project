@@ -47,6 +47,14 @@
                             >
                                 Dashboard
                             </a>
+                            @if(auth()->user()->role == 1)
+                                <a href="{{ route('admin.categories')}}"
+                                   class="block px-3 py-1 text-gray-700 rounded
+                                        hover:bg-green-500 hover:text-white"
+                                >
+                                    Categories
+                                </a>
+                            @endif
 
                             <a href="{{ route('profile.show') }}" class="block px-3 py-1 text-gray-700 rounded
                                  hover:bg-green-500 hover:text-white">
@@ -124,7 +132,7 @@
         <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
             © 2021 MyShoe
         </p>
-    </span>
+        </span>
     </div>
 </footer>
 @livewireScripts

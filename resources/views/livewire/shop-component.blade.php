@@ -1,7 +1,7 @@
 <div class="min-h-screen py-4">
     <div class="container mx-auto flex px-5 py-5 flex-col items-center">
         <div
-            class="pr-6 w-full flex flex-col mb-6 items-center text-center">
+            class="pr-6 w-full flex flex-col items-center text-center">
             <div class="flex w-4/5 lg:justify-center md:justify-start justify-center items-end">
                 <div class="mr-4 w-full">
                     <input wire:model.debounce.500ms="search"
