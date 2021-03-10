@@ -23,6 +23,16 @@ class CartComponent extends Component
         }
     }
 
+    public function destroy($rowId){
+        Cart::remove($rowId);
+        session()->flash('success_message', 'Item has been removed');
+    }
+
+    public function destroyAll(){
+        Cart::destroy();
+        session()->flash('success_message', 'All items have been removed');
+    }
+
     public function render()
     {
         return view('livewire.cart-component');
