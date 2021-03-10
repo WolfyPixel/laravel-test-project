@@ -6,8 +6,9 @@
                 <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Banh mi cornhole echo park skateboard authentic
                     crucifix neutra tilde lyft biodiesel artisan direct trade mumblecore 3 wolf moon twee</p>
                 <div class="flex justify-end w-full mt-2 mx-auto px-1">
-                    <a href="{{route('admin.category.add')}}" class="text-white bg-green-500 w-1/5 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-sm mr-6">
-                            Add Category
+                    <a href="{{route('admin.category.add')}}"
+                       class="text-white bg-green-500 w-1/5 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-sm mr-6">
+                        Add Category
                     </a>
                     <button
                         class="text-white bg-red-500 w-1/5 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-sm">
@@ -21,6 +22,12 @@
                         No categories
                     </div>
                 @else
+                    @if(session()->has('message'))
+                        <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3" role="alert">
+                            <p class="font-bold">Success</p>
+                            <p class="text-sm">{{ session()->get('message') }}</p>
+                        </div>
+                    @endif
                     <table class="table-auto w-full text-left whitespace-no-wrap">
                         <thead>
                         <tr>
@@ -48,6 +55,9 @@
                                 <td class="px-4 py-3">
                                     <a href="{{route('admin.category.edit', ['categorySlug' => $category->slug])}}">
                                         <i class="fa fa-edit fa-2x"></i>
+                                    </a>
+                                    <a href="#" wire:click.prevent="delete({{$category->id}})" class="ml-1">
+                                        <i class="fa fa-times fa-2x text-red-500"></i>
                                     </a>
                                 </td>
                             </tr>
