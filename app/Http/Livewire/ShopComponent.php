@@ -12,13 +12,15 @@ class ShopComponent extends Component {
     use WithPagination;
 
     public $sorting;
-    public $pagesize;
+    public $pageSize;
     public $categorySlug;
+    public $search;
 
     public function mount() {
         $this->sorting = "default";
-        $this->pagesize = 6;
+        $this->pageSize = 6;
         $this->categorySlug = "no-category";
+        $this->search = '';
     }
 
     // adds products to the cart
@@ -29,52 +31,40 @@ class ShopComponent extends Component {
     }
 
     public function render() {
-        $products = $this->filterByCategoryAndSort();
+        $products = $this->filterSortPaginate();
 
         $categories = Category::all();
 
         return view('livewire.shop-component', ['products' => $products, 'categories' => $categories]);
     }
 
-    private function filterByCategoryAndSort() {
+    private function filterSortPaginate() {
+        $query = Product::query();
 
-        if ($this->categorySlug == "no-category") {
+        //search filter
+        if(!empty($this->search))
+            $query = $query->where('name', 'like', '%' . $this->search . '%');
 
-            // sort products
-            switch ($this->sorting) {
-                case 'date':
-                    $products = Product::orderBy('created_at', 'DESC')->paginate($this->pagesize);
-                    break;
-                case 'price':
-                    $products = Product::orderBy('regular_price', 'ASC')->paginate($this->pagesize);
-                    break;
-                case 'price-desc':
-                    $products = Product::orderBy('regular_price', 'DESC')->paginate($this->pagesize);
-                    break;
-                default:
-                    $products = Product::paginate($this->pagesize);
-            }
-        } else {
-            //category filter
+        //category filter
+        if ($this->categorySlug != "no-category") {
             $category = Category::where('slug', $this->categorySlug)->first();
-            $categoryId = $category->id;
-
-            // filter and sort products
-            switch ($this->sorting) {
-                case 'date':
-                    $products = Product::where('category_id', $categoryId)->orderBy('created_at', 'DESC')->paginate($this->pagesize);
-                    break;
-                case 'price':
-                    $products = Product::where('category_id', $categoryId)->orderBy('regular_price', 'ASC')->paginate($this->pagesize);
-                    break;
-                case 'price-desc':
-                    $products = Product::where('category_id', $categoryId)->orderBy('regular_price', 'DESC')->paginate($this->pagesize);
-                    break;
-                default:
-                    $products = Product::where('category_id', $categoryId)->paginate($this->pagesize);
-            }
+            $query = $query->where('category_id', $category->id);
         }
 
+        // sort products
+        switch ($this->sorting) {
+            case 'date':
+                $query = $query->orderBy('created_at', 'DESC');
+                break;
+            case 'price':
+                $query = $query->orderBy('regular_price', 'ASC');
+                break;
+            case 'price-desc':
+                $query = $query->orderBy('regular_price', 'DESC');
+                break;
+        }
+
+        $products = $query->paginate($this->pageSize);
         return $products;
     }
 }

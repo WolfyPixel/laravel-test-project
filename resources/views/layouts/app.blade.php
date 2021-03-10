@@ -14,7 +14,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-    {{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
     @livewireStyles
 
     <!-- Scripts -->
@@ -99,7 +98,7 @@
                 </a>
             </li>
             <li class="mx-2.5 hover:text-white cursor-pointer">
-                <a href="{{ route('product.cart') }}">
+                <a href="{{ route('cart') }}">
                     Cart
                 </a>
             </li>
