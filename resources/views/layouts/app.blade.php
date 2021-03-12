@@ -58,6 +58,12 @@
                                 >
                                     Categories
                                 </a>
+                                <a href="{{ route('admin.products')}}"
+                                   class="block px-3 py-1 text-gray-700 rounded
+                                        hover:bg-green-500 hover:text-white"
+                                >
+                                    Products
+                                </a>
                             @endif
 
                             <a href="{{ route('profile.show') }}" class="block px-3 py-1 text-gray-700 rounded
