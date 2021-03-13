@@ -23,7 +23,8 @@
                     </div>
                 @else
                     @if(session()->has('message'))
-                        <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3" role="alert">
+                        <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3"
+                             role="alert">
                             <p class="font-bold">Success</p>
                             <p class="text-sm">{{ session()->get('message') }}</p>
                         </div>
@@ -66,7 +67,8 @@
                             <tr>
                                 <td class="px-4 py-3">{{ $product->id }}</td>
                                 <td class="px-4 py-3">
-                                    <img src="{{ asset('storage/images/products/'.$product->image.'.png') }}" alt="{{$product->name}}" class="w-10 h-10 object-cover">
+                                    <img src="{{ asset('storage/images/products/'.$product->image.'.png') }}"
+                                         alt="{{$product->name}}" class="w-10 h-10 object-cover">
                                 </td>
                                 <td class="px-4 py-3">{{ $product->name }}</td>
                                 <td class="px-4 py-3">{{ $product->stock_status }}</td>
@@ -78,7 +80,9 @@
                                     <a href="{{route('admin.product.edit', ['productSlug' => $product->slug])}}">
                                         <i class="fa fa-edit fa-2x"></i>
                                     </a>
-                                    <a href="#" wire:click.prevent="delete({{$product->id}})" class="ml-1">
+                                    <a href="#"
+                                       onclick="confirm('Are you sure you want to delete this category?') || event.stopImmediatePropagation()"
+                                       wire:click.prevent="delete({{$product->id}})" class="ml-1">
                                         <i class="fa fa-times fa-2x text-red-500"></i>
                                     </a>
                                 </td>
