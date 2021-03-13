@@ -6,7 +6,7 @@
                 <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Banh mi cornhole echo park skateboard authentic
                     crucifix neutra tilde lyft biodiesel artisan direct trade mumblecore 3 wolf moon twee</p>
                 <div class="flex justify-end w-full mt-2 mx-auto px-1">
-                    <a href="{{route('admin.dashboard')}}"
+                    <a href="{{route('admin.product.add')}}"
                        class="text-white bg-green-500 w-1/5 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-sm mr-6">
                         Add Product
                     </a>
@@ -66,7 +66,7 @@
                             <tr>
                                 <td class="px-4 py-3">{{ $product->id }}</td>
                                 <td class="px-4 py-3">
-                                    <img src="{{ asset('storage/images/products/'.$product->image.'.png') }}" alt="{{$product->name}}}" class="w-14">
+                                    <img src="{{ asset('storage/images/products/'.$product->image.'.png') }}" alt="{{$product->name}}" class="w-10 h-10 object-cover">
                                 </td>
                                 <td class="px-4 py-3">{{ $product->name }}</td>
                                 <td class="px-4 py-3">{{ $product->stock_status }}</td>

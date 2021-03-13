@@ -9,7 +9,7 @@
                 <h2 class="text-sm title-font text-gray-500 tracking-widest">{{ $product->category->name }}</h2>
                 <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $product->name }}</h1>
 
-                <p class="leading-relaxed">{{ $product->description }}</p>
+                <p class="leading-relaxed">{{ $product->short_description }}</p>
                 <br>
                 <h3>Quantity available: {{ $product->quantity }}</h3>
 
@@ -28,14 +28,14 @@
         </div>
     </div>
     <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap w-full mb-16">
+        <div class="flex-col flex-wrap w-full mb-16">
+            <p class="lg:w-1/2 w-full mb-16 leading-relaxed text-gray-500">{{ $product->description }}</p>
+
             <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Related Products</h1>
                 <div class="h-1 w-20 bg-green-500 rounded"></div>
             </div>
-            <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever cardigan tote bag tumblr hexagon
-                brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard
-                of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+
         </div>
         <div class="flex flex-wrap -m-4">
             @foreach($relatedProducts as $product)

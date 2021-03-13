@@ -23,13 +23,13 @@
                     iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
             </div>
             <div class="mb-8">
-                <select name="orderby" wire:model="sorting">
+                <select name="orderby" wire:model="sorting" class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10">
                     <option value="default" selected="selected">Default sorting</option>
                     <option value="date">Sort by newness</option>
                     <option value="price">Sort by price: low to high</option>
                     <option value="price-desc">Sort by price: high to low</option>
                 </select>
-                <select name="category" wire:model="categorySlug">
+                <select name="category" wire:model="categorySlug" class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10">
                     <option value="no-category" selected="selected">Choose category</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->slug }}">
