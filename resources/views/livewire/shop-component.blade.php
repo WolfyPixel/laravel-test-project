@@ -69,9 +69,13 @@
                 @else
                     <p class="pt-30">No Products</p>
                 @endif
+
+            </div>
+            <div class="mt-5">
+                {{ $products->links() }}
             </div>
         </div>
-        {{ $products->links() }}
+
     </section>
 
 </div>
