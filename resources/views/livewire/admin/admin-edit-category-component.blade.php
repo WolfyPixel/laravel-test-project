@@ -12,11 +12,25 @@
                 <label for="name" class="leading-7 text-sm text-gray-600">Category Name</label>
                 <input type="text" name="name" wire:model="name" wire:keyup="generateSlug"
                        class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+
+                @error('name')
+                <div class="text-red-700 px-4 py-1 text-sm" role="alert">
+                    <p class="text-sm">{{ $message }}</p>
+                </div>
+                @enderror
+
             </div>
             <div class="mb-4">
                 <label for="slug" class="leading-7 text-sm text-gray-600">Category Slug</label>
                 <input type="text" name="slug" placeholder="{{$slug}}" disabled
                        class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+
+                @error('slug')
+                <div class="text-red-700 px-4 py-1 text-sm" role="alert">
+                    <p class="text-sm">{{ $message }}</p>
+                </div>
+                @enderror
+
             </div>
             <button type="submit"
                     class="w-full text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">
