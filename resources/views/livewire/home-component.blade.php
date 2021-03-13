@@ -44,7 +44,7 @@
             <div class="flex flex-wrap -m-4">
                 @foreach($popularProducts as $product)
                     <div class="xl:w-1/4 md:w-1/2 p-4">
-                        <div class="bg-gray-100 p-6 rounded-lg">
+                        <div class="p-6 rounded-lg">
 
                             <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
                                 <img class="h-40 rounded w-full object-cover object-center mb-6"
@@ -54,8 +54,13 @@
                             <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">
                                 {{ $product->category->name }}
                             </h3>
-                            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{ $product->name }}</h2>
-                            <p class="leading-relaxed text-base">
+
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+                                    <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
+                                        {{ $product->name }}
+                                    </a>
+                                </h2>
+                            <p class="leading-relaxed text-base break-words">
                                 {{ $product->short_description }}
                             </p>
                             <div class="mt-4">

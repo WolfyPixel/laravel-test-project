@@ -13,6 +13,7 @@ class AdminCategoryComponent extends Component {
         $category = Category::find($id);
         $category->delete();
         session()->flash('message', 'Category has been deleted successfully!');
+        return redirect()->route('admin.categories');
     }
 
     public function render() {

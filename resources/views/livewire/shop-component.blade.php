@@ -23,13 +23,15 @@
                     iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
             </div>
             <div class="mb-8">
-                <select name="orderby" wire:model="sorting" class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10">
+                <select name="orderby" wire:model="sorting"
+                        class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10">
                     <option value="default" selected="selected">Default sorting</option>
                     <option value="date">Sort by newness</option>
                     <option value="price">Sort by price: low to high</option>
                     <option value="price-desc">Sort by price: high to low</option>
                 </select>
-                <select name="category" wire:model="categorySlug" class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10">
+                <select name="category" wire:model="categorySlug"
+                        class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10">
                     <option value="no-category" selected="selected">Choose category</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->slug }}">
@@ -51,17 +53,29 @@
                             </a>
                             <div class="mt-4">
                                 <div class="flex justify-between">
-                                    <div><h3
-                                            class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->category->name }}</h3>
-                                        <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2>
-                                        <p class="mt-1">${{ $product->regular_price }}</p></div>
-                                    <div class="flex flex-col-reverse">
-                                        <button class="flex ml-auto text-white bg-yellow-500 border-0 py-2 px-6
+                                    <div>
+                                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
+                                            {{ $product->category->name }}
+                                        </h3>
+                                        <h2 class="text-gray-900 title-font text-lg font-medium">
+                                            <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
+                                                {{ $product->name }}
+                                            </a>
+                                        </h2>
+                                        <p class="leading-relaxed text-base break-words">
+                                            {{ $product->short_description }}
+                                        </p>
+                                        <div class="flex justify-between mt-2">
+                                            <p class="mt-1">${{ $product->regular_price }}</p>
+                                            <button class="flex ml-auto text-white bg-yellow-500 border-0 py-2 px-6
                                                 focus:outline-none hover:bg-yellow-600 rounded"
-                                                wire:click.prevent="store({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})">
-                                            Add to Cart
-                                        </button>
+                                                    wire:click.prevent="store({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+
                                     </div>
+
                                 </div>
                             </div>
                         </div>

@@ -13,6 +13,7 @@ class AdminProductComponent extends Component {
         $product = Product::find($id);
         $product->delete();
         session()->flash('message', 'Product has been deleted successfully!');
+        return redirect()->route('admin.products');
     }
 
     public function render() {

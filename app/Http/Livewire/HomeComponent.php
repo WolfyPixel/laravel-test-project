@@ -11,7 +11,7 @@ class HomeComponent extends Component {
     public  function store($productId, $productName, $productPrice){
         Cart::add($productId, $productName, 1, $productPrice)->associate('App\Models\Product');
         session()->flash('success_message', 'Item added in cart');
-        return redirect()->route('product.cart');
+        return redirect()->route('cart');
     }
 
     public function render() {

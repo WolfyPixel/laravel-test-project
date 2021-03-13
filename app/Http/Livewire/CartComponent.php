@@ -33,6 +33,11 @@ class CartComponent extends Component
         session()->flash('success_message', 'All items have been removed');
     }
 
+    public function checkout(){
+        Cart::destroy();
+        session()->flash('success_message', 'Checkout is completed');
+    }
+
     public function render()
     {
         return view('livewire.cart-component');

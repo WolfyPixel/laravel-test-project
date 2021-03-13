@@ -23,7 +23,7 @@
                     </div>
                 @else
                     @if(session()->has('message'))
-                        <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3"
+                        <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 mb-2"
                              role="alert">
                             <p class="font-bold">Success</p>
                             <p class="text-sm">{{ session()->get('message') }}</p>
@@ -67,10 +67,16 @@
                             <tr>
                                 <td class="px-4 py-3">{{ $product->id }}</td>
                                 <td class="px-4 py-3">
-                                    <img src="{{ asset('storage/images/products/'.$product->image.'.png') }}"
-                                         alt="{{$product->name}}" class="w-10 h-10 object-cover">
+                                    <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
+                                        <img src="{{ asset('storage/images/products/'.$product->image.'.png') }}"
+                                             alt="{{$product->name}}" class="w-10 h-10 object-cover">
+                                    </a>
                                 </td>
-                                <td class="px-4 py-3">{{ $product->name }}</td>
+                                <td class="px-4 py-3">
+                                    <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
+                                        {{ $product->name }}
+                                    </a>
+                                </td>
                                 <td class="px-4 py-3">{{ $product->stock_status }}</td>
                                 <td class="px-4 py-3">{{ $product->regular_price }}</td>
                                 <td class="px-4 py-3">{{ $product->category->name }}</td>
@@ -81,7 +87,7 @@
                                         <i class="fa fa-edit fa-2x"></i>
                                     </a>
                                     <a href="#"
-                                       onclick="confirm('Are you sure you want to delete this category?') || event.stopImmediatePropagation()"
+                                       onclick="confirm('Are you sure you want to delete this product?') || event.stopImmediatePropagation()"
                                        wire:click.prevent="delete({{$product->id}})" class="ml-1">
                                         <i class="fa fa-times fa-2x text-red-500"></i>
                                     </a>

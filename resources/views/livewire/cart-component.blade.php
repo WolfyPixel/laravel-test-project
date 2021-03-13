@@ -43,6 +43,7 @@
                                     </span>
                                     <span class="text-red-500 text-xs">{{ $item->model->category->name }}</span>
                                     <a href="#"
+                                       onclick="confirm('Are you sure you want to remove this cart item?') || event.stopImmediatePropagation()"
                                        class="font-semibold hover:text-red-500 text-gray-500 text-xs min-w-min"
                                        wire:click.prevent="destroy('{{ $item->rowId }}')"
                                     >
@@ -70,8 +71,10 @@
                         </div>
                     @endforeach
                     <div class="mt-5">
-                        <a class="font-bold hover:text-red-500 text-gray-700 text-md cursor-pointer"
-                           wire:click.prevent="destroyAll()"
+                        <a
+                            onclick="confirm('Are you sure you want to remove all cart items?') || event.stopImmediatePropagation()"
+                            wire:click.prevent="destroyAll()"
+                            class="font-bold hover:text-red-500 text-gray-700 text-md cursor-pointer"
                         >
                             Remove All
                         </a>
@@ -139,6 +142,7 @@
                         <span>${{Cart::Total()}}</span>
                     </div>
                     <button
+                        wire:click="checkout"
                         class="bg-yellow-500 font-semibold hover:bg-yellow-600 py-3 text-sm text-white uppercase w-full">
                         Checkout
                     </button>

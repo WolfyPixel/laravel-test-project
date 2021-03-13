@@ -23,7 +23,7 @@
                     </div>
                 @else
                     @if(session()->has('message'))
-                        <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3" role="alert">
+                        <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3 mb-2" role="alert">
                             <p class="font-bold">Success</p>
                             <p class="text-sm">{{ session()->get('message') }}</p>
                         </div>
