@@ -76,11 +76,11 @@
                                 <td class="px-4 py-3">{{ $product->updated_at }}</td>
                                 <td class="px-4 py-3">
                                     <a href="{{route('admin.product.edit', ['productSlug' => $product->slug])}}">
-                                        <i class="fa fa-edit fa-2x text-info"></i>
+                                        <i class="fa fa-edit fa-2x"></i>
                                     </a>
-{{--                                    <a href="#" wire:click.prevent="delete({{$category->id}})" class="ml-1">--}}
-{{--                                        <i class="fa fa-times fa-2x text-red-500"></i>--}}
-{{--                                    </a>--}}
+                                    <a href="#" wire:click.prevent="delete({{$product->id}})" class="ml-1">
+                                        <i class="fa fa-times fa-2x text-red-500"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
