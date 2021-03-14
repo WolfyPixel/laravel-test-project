@@ -15,8 +15,11 @@ class HomeComponent extends Component {
     }
 
     public function render() {
-        $popularProducts = Product::inRandomOrder()->limit(4)->get();
-        $featuredProduct = Product::where('featured', 1)->inRandomOrder()->first();
+        // only instock items
+        $productsInStock = Product::where('stock_status', 'instock');
+
+        $popularProducts = $productsInStock->limit(4)->get();
+        $featuredProduct = $productsInStock->where('featured', 1)->inRandomOrder()->first();
 
 
         return view('livewire.home-component',

@@ -41,6 +41,9 @@ class ShopComponent extends Component {
     private function filterSortPaginate() {
         $query = Product::query();
 
+        // only instock items
+        $query = $query->where('stock_status', 'instock');
+
         //search filter
         if(!empty($this->search))
             $query = $query->where('name', 'like', '%' . $this->search . '%');
@@ -65,6 +68,7 @@ class ShopComponent extends Component {
         }
 
         $products = $query->paginate($this->pageSize);
+
         return $products;
     }
 }

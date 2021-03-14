@@ -22,10 +22,14 @@ class DetailsComponent extends Component
 
     public function render()
     {
-        $product = Product::where('slug', $this->slug)->first();
+        $productsInStock = Product::where('stock_status', 'instock');
+
+        $product = $productsInStock->where('slug', $this->slug)->first();
+
         $relatedProducts = Product::where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)
             ->inRandomOrder()->limit(5)->get();
+
         return view('livewire.details-component',
             [
                 'product' => $product,
