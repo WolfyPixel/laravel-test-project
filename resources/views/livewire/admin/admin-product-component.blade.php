@@ -11,6 +11,8 @@
                         Add Product
                     </a>
                     <button
+                        onclick="confirm('Are you sure you want to delete ALL products?') || event.stopImmediatePropagation()"
+                        wire:click.prevent="deleteAll()"
                         class="text-white bg-red-500 w-1/5 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-sm">
                         Delete All
                     </button>
