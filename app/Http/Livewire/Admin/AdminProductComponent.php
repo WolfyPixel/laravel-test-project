@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,6 +12,7 @@ class AdminProductComponent extends Component {
 
     public function delete($id){
         $product = Product::find($id);
+        Storage::delete('public/images/products/'.$product->image.'.png');
         $product->delete();
         session()->flash('message', 'Product has been deleted successfully!');
         return redirect()->route('admin.products');
