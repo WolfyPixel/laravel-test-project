@@ -73,30 +73,6 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="sale_price" class="leading-7 text-sm text-gray-600">Sale Price</label>
-                    <input type="text" name="sale_price" wire:model="salePrice"
-                           class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-
-                    @error('salePrice')
-                    <div class="text-red-700 px-4 py-1 text-sm" role="alert">
-                        <p class="text-sm">{{ $message }}</p>
-                    </div>
-                    @enderror
-                </div>
-
-                <div class="mb-4">
-                    <label for="sku" class="leading-7 text-sm text-gray-600">SKU</label>
-                    <input type="text" name="sku" wire:model="sku"
-                           class="w-full bg-white rounded border border-gray-300 focus:border-green-500 focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-
-                    @error('sku')
-                    <div class="text-red-700 px-4 py-1 text-sm" role="alert">
-                        <p class="text-sm">{{ $message }}</p>
-                    </div>
-                    @enderror
-                </div>
-
-                <div class="mb-4">
                     <label for="stock" class="leading-7 text-sm text-gray-600">Stock</label>
                     <select name="stock" wire:model="stockStatus"
                             class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10">

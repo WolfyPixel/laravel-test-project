@@ -20,8 +20,6 @@ class AdminEditProductComponent extends Component
     public $shortDescription;
     public $description;
     public $regularPrice;
-    public $salePrice;
-    public $sku;
     public $stockStatus;
     public $featured;
     public $quantity;
@@ -37,8 +35,6 @@ class AdminEditProductComponent extends Component
         $this->shortDescription = $product->short_description;
         $this->description = $product->description;
         $this->regularPrice = $product->regular_price;
-        $this->salePrice = $product->sale_price;
-        $this->sku = $product->SKU;
         $this->stockStatus = $product->stock_status;
         $this->featured = $product->featured;
         $this->quantity = $product->quantity;
@@ -61,8 +57,6 @@ class AdminEditProductComponent extends Component
             'shortDescription' => 'required|min:3|max:250',
             'description' => 'required|min:3|max:1000',
             'regularPrice' => 'required|numeric',
-            'salePrice' => 'nullable|numeric',
-            'sku' => 'required',
             'stockStatus' => 'required',
             'quantity' => 'required|numeric',
             'newImage' => 'exclude_unless:image,true|required|mimes:jpg,jpeg,png',
@@ -82,8 +76,6 @@ class AdminEditProductComponent extends Component
             'shortDescription' => 'required|min:3|max:250',
             'description' => 'required|min:3|max:1000',
             'regularPrice' => 'required|numeric',
-            'salePrice' => 'nullable|numeric',
-            'sku' => 'required',
             'stockStatus' => 'required',
             'quantity' => 'required|numeric',
             'newImage' => 'exclude_unless:image,true|required|mimes:jpg,jpeg,png',
@@ -97,8 +89,6 @@ class AdminEditProductComponent extends Component
         $product->short_description = $this->shortDescription;
         $product->description = $this->description;
         $product->regular_price = $this->regularPrice;
-        $product->sale_price = $this->salePrice;
-        $product->SKU = $this->sku;
         $product->stock_status = $this->stockStatus;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;

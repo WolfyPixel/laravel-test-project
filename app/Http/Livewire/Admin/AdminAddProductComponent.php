@@ -18,8 +18,6 @@ class AdminAddProductComponent extends Component
     public $shortDescription;
     public $description;
     public $regularPrice;
-    public $salePrice;
-    public $sku;
     public $stockStatus;
     public $featured;
     public $quantity;
@@ -42,8 +40,6 @@ class AdminAddProductComponent extends Component
             'shortDescription' => 'required|min:3|max:250',
             'description' => 'required|min:3|max:1000',
             'regularPrice' => 'required|numeric',
-            'salePrice' => 'nullable|numeric',
-            'sku' => 'required',
             'stockStatus' => 'required',
             'quantity' => 'required|numeric',
             'image' => 'required|mimes:jpg,jpeg,png',
@@ -60,8 +56,6 @@ class AdminAddProductComponent extends Component
             'shortDescription' => 'required|min:3|max:250',
             'description' => 'required|min:3|max:1000',
             'regularPrice' => 'required|numeric',
-            'salePrice' => 'nullable|numeric',
-            'sku' => 'required',
             'stockStatus' => 'required',
             'quantity' => 'required|numeric',
             'image' => 'required|mimes:jpg,jpeg,png',
@@ -75,8 +69,6 @@ class AdminAddProductComponent extends Component
         $product->short_description = $this->shortDescription;
         $product->description = $this->description;
         $product->regular_price = $this->regularPrice;
-        $product->sale_price = $this->salePrice;
-        $product->SKU = $this->sku;
         $product->stock_status = $this->stockStatus;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
