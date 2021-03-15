@@ -1,4 +1,5 @@
-<p align="center">Laravel e-commerce website</p>
+
+## Laravel e-commerce website
 
 ## License
 
